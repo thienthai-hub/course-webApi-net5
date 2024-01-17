@@ -1,0 +1,18 @@
+﻿@model IEnumerable<BanVali.Models.FE.TLoaiSp>
+<div class="col-lg-3">
+    <div class="hero__categories">
+        <div class="hero__categories__all">
+            <i class="fa fa-bars"></i>
+            <span>All departments</span>
+        </div>
+        <ul>
+            @foreach (var category in Model)
+            {
+                <li>
+                    <a asp-controller="Home" asp-action="ListProducts" asp-route-maLoai="@category.MaLoai.Trim()">@category.Loai</a>
+                </li>
+                <!-- Các thông tin khác của category -->
+            }
+        </ul>
+    </div>
+</div>

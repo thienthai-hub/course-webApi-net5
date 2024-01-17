@@ -1,0 +1,28 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    Layout = "_Layout";
+}
+
+@model PaginatedList<BanVali.Models.FE.TDanhMucSp>
+<div class="row featured__filter" id="MixItUp09DD6A">
+    @foreach (var product in Model)
+    {
+        @Html.Partial("ProductCardPartial", product)
+    }
+</div>
+<div class="product__pagination">
+    @if (Model.HasPreviousPage)
+    {
+        <a asp-action="Index" asp-route-pageIndex="@Model.PageIndex - 1">Trước</a>
+    }
+    @for (var i = 1; i <= Model.TotalPages; i++)
+    {
+        <a asp-action="Index" asp-route-pageIndex="@i">@i</a>
+    }
+    @if (Model.HasNextPage)
+    {
+        <a asp-action="Index" asp-route-pageIndex="@Model.PageIndex + 1">Sau</a>
+    }
+</div>
+
+
